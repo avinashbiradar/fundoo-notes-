@@ -1,70 +1,126 @@
-.inline-wrapper {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
-
-#card {
-    margin: auto;
-    margin-top: 5%;
-    height: 600px;
-    width: 550px;
-    justify-content: 30px;
-   
-}
-.header-content{
+@import url(https://fonts.googleapis.com/css?family=Google+Sans);
+.container1-body{
+    width: 750px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
     position: relative;
-    top: -45px;
+    top: 10px;
+    // border: 1px solid  rgba($color: #e2e0e050, $alpha: 1.0);
 }
-.email-text{
+.app_name1 {
+    // content: url(./google-2015.svg);
+    width: 73px;
     position: relative;
-    top: 15px;
+    top: 47px;
+    right: -40px;
 }
-.inline-paper {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
+.text{
+    position: relative;
+    top: 64px;
+    right: 180.5px;
+    font-family: 'Google Sans',serif;
 }
-
-.inline-header {
-    height: 10px;
-    // display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
+.form{
+    position: relative;
+    top: 30px;
 }
-
-.form {
-    text-align: center;
-    padding: 0px 2% 0% 2%;
-    justify-content: flex-start;
-    justify-content: space-between;
+.fname{
+    top: 22px;
+    right: 46px;
+    display: inline-block;
+}
+.lname{
+    top: 22px;
+    right: 234px;
+    display: inline-block;
+}
+.pass1{
+    top: 22px;
+    right: 46px;
+    display: inline-block;
+}
+.cnfm1{
+    top: 22px;
+    right: 234px;
+    display: inline-block;
+}
+.cnfmpass{
+    position: relative;
+    top: 40px;
+}
+#outlined-textarea1{
+    height: 100px;
+    width: 155px;
+}
+#outlined-textarea2{
     display: block;
-    width: '100%';
-    margin-top: auto;
-    column-gap: 100px;
+    width: 360px;
 }
-
-.address {
-    margin-top: -10px;
-    box-sizing: 100%;
+#outlined-textarea3{
+    height: 19px;
+    width: 155px;
 }
-
-.first-Name {
-    height: 5vh;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-}
-.fundoo{
+.user{
     position: relative;
-    bottom: 30px;
+    top: 34px;
+    right: 95px;
 }
+.gmail{
+    // display: block;
+    position: relative;
+    right: 95px;
+    top: 13px;
+}
+.line1{
+    position: relative;
+    top: 40px;
+    right: 200px;
+}
+.hint{
+    position: relative;
+    top: 19px;
+    right: 150px;
+    font-size: 12px;
+}
+#formGridCheckbox{
+    position: relative;
+    top: 80px;
+    right: 265px;
+}
+.but2{
+    width: 81px;
+    height: 37px;
+    // margin-left: 62%;
+    // margin-top: 25%;
+    position: relative;
+    top: 100px;
+    right: 70px;
+    // left: 76px;
+}
+.link2{
+    position: relative;
+    top: 100px;
+    right: 235px;
+}
+.accnt img{
+    content: url('../assests/account.svg');
+    width: 250px;
+    position: relative;
+    left: 220px;
+    top: -325px;
+}
+#root{
+    border: 3px solid  rgba($color: #eeeeee50, $alpha: 2.0);
+    // height: 75vh;
+    width: 750px;
+    height: 534px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 7px;
+    
+
+ }

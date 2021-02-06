@@ -1,9 +1,9 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;;
-}
+// *{
+//     margin: 0%;
+//     padding: 0%;
+//     box-sizing: border-box;
+//     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;;
+// }
 
 body{
     width: 100vw;
@@ -23,6 +23,16 @@ body{
 //     flex-direction: row;
 
 // }
+.main{
+    border: 3px solid  rgba($color: #eeeeee50, $alpha: 2.0);
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        border-radius: 7px;
+    
+}
 .create{
     position: relative;
     top: 100;
@@ -33,7 +43,7 @@ body{
 
 form{
     position: relative;
-    top: -50px;
+    top: -500px;
 }
 .forgot-password{
     position: relative;
@@ -61,11 +71,5 @@ h3{
     align-items: center;
     flex-direction: row;
     border-radius: 7px;
-//     width: 450px;
-//     height: 500px;
-//     margin-right: auto;
-//     margin-left: auto;
-//    margin-top: 90px;
-   
 
-}
+ }

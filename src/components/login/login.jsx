@@ -32,7 +32,7 @@ export default function Login() {
   const classes = useStyles();
 
   return (
-    
+    <div>
     <Container classname="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -95,6 +95,7 @@ export default function Login() {
         </form>
       </div>
     </Container>
+    </div>
   );
 }
 
