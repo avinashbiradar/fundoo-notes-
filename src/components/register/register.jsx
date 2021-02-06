@@ -5,27 +5,73 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import  registration  from "../../services/userservice"
+
 
 class Register extends Component {
-  handleRegister=()=>{
-     let data={
-       firstName:this.state.firstName,
-       lastName:this.state.lastName,
-       email:this.state.email,
-       password:this.state.password,
-       service:"advance"
-     }
-  }
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      
+      firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          Rpassword: "",
     };
   }
 
-  render() {
+  handleFirstNameInput = (event) => {
+    event.preventDefault();
+    this.setState({ 
+      firstName: event.target.value,
+    });
+
+  }
+  handleLastNameInput = (event) => {
+    event.preventDefault();
+    this.setState({
+      lastName: event.target.value,
+    });
+  }
+  handleEmailInput = (event) => {
+    event.preventDefault();
+    this.setState({
+      email: event.target.value,
+    });
+  }
+ handlePasswordInput = (event) => {
+  event.preventDefault();
+  this.setState({
+    password: event.target.value,  
+  });
+}
+handleReapetPasswordInput = (event) => {
+  event.preventDefault();
+  this.setState({
+    Rpassword: event.target.value,
+  });
+}
+  handleSubmit =(event) =>{
+    event.preventDefault();
+    console.log("working handle submit")
+     let userData = {
+      email: this.state.email,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      password: this.state.password,
+      service: "advance"
+
+    }
+    console.log(userData)
+    registration(userData).then((data)=>{
+      console.log(data);
+    })
+    .catch ((error)=>{
+      console.log(error)
+    })
+      
+  }
+  render(){
     return (
       <div className="inline-wrapper">
         <Card id="card">
@@ -72,6 +118,7 @@ class Register extends Component {
                             required
                             id="firstName"
                             label="First Name"
+                            onChange={this.handleFirstNameInput}
                           />
                         </div>
                       </div>
@@ -96,6 +143,7 @@ class Register extends Component {
                             id="lastName"
                             label="Last Name"
                             name="lastName"
+                            onChange={this.handleLastNameInput}
                           />
                         </div>
                       </div>
@@ -119,6 +167,7 @@ class Register extends Component {
                               label="Email Address"
                               name="email"
                               autoComplete="email"
+                              onChange={this.handleEmailInput}
                             />
                           </div>
                         </div>
@@ -145,6 +194,7 @@ class Register extends Component {
                               label="password"
                               name="password"
                               autoComplete="current-password"
+                              onChange={this.handlePasswordInput}
                             />
                           </div>
                         </div>
@@ -171,6 +221,7 @@ class Register extends Component {
                               type="rpassword"
                               id="rpassword"
                               autoComplete="current-password"
+                              onChange={this.handleReapetPasswordInput}
                             />
                           </div>
                         </div>
@@ -183,10 +234,9 @@ class Register extends Component {
                       <div className="Button">
                         <Button
                           type="submit"
-                          fullWidth
                           variant="contained"
                           color="primary"
-                          onClick={this.handleSubmit2}
+                          onClick={this.handleSubmit}
                         >
                           Sign Up
                         </Button>
@@ -210,7 +260,6 @@ class Register extends Component {
         </Card>
       </div>
     );
-  }
+ }
 }
-
 export default Register;
