@@ -4,8 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from 'react-bootstrap/Button';
 import TextField from '@material-ui/core/TextField';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
 import './register.scss';
 import Typography from "@material-ui/core/Typography";
 import registration from "../../services/userservice";
@@ -71,6 +69,9 @@ class Register extends Component {
         console.log(error);
       });
   };
+  signIn=()=>{
+    window.location.href="http://localhost:3000/login"
+  }
   render() {
     return (
       <div>
@@ -193,8 +194,9 @@ class Register extends Component {
             <Form.Group id="formGridCheckbox">
               <Form.Check type="checkbox" label="Show password" />
             </Form.Group>
-            <Button className="link2" variant="link">
+            <Button className="link2" variant="link"  onClick={this.signIn}>
               Sign in instead
+              
             </Button>
             <Button
               onClick={this.handleSubmit}

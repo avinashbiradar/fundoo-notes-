@@ -28,11 +28,44 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+// forgotPage=()=>{
+//   window.location.href="http://localhost:3000/reset"
+// }
 export default function Login() {
+  // constructor(props) {
+  //   super(props)
+  
+  //   this.state = {
+  //       email: '',
+  //       password: '',
+  //   }
+  // }
   const classes = useStyles();
+  
+
+// handleChange = (e) => {
+//   // e.preventDefault();
+//   console.log("on change calling", e.target.value);
+//   this.setState({ [e.target.name]: e.target.value })
+// }
+
+
+// handleRegister = (e) => {
+//   e.preventDefault();
+//   let data = {
+//       email: this.state.email,
+//       password: this.state.password,
+//       service: "advance"
+//   }
+//   userService.login(data).then((response) => {
+//       console.log("response successfull", response);
+//   }).catch((error) => {
+//       console.log("error", error);
+//   })
+// }
+
 
   return (
-    <div>
     <Container classname="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -49,6 +82,7 @@ export default function Login() {
         </div>
         <form className={classes.form} noValidate>
           <TextField
+            // value={this.state.email}
             variant="outlined"
             margin="normal"
             required
@@ -57,9 +91,11 @@ export default function Login() {
             label="Email Address Or Phone"
             name="email"
             autoFocus
+            // onChange={this.handleChange}
           />
 
           <TextField
+            // value={this.state.password}
             variant="outlined"
             margin="normal"
             required
@@ -68,9 +104,10 @@ export default function Login() {
             label="Password"
             type="password"
             id="password"
+            // onChange={this.handleChange}
           />
           <div class="forgot-password">
-            <Link href="#" variant="body2">
+            <Link href="#" variant="body2"  >
               Forgot password?
             </Link>
           </div>
@@ -83,6 +120,7 @@ export default function Login() {
             </Grid>
             <Grid item item xs={12} sm={6} classname="submit">
               <Button
+                // onClick={this.handleRegister}
                 type="submit"
                 variant="contained"
                 color="primary"
@@ -95,62 +133,6 @@ export default function Login() {
         </form>
       </div>
     </Container>
-    </div>
   );
 }
 
-// class Login extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       email: "",
-//       password: "",
-//     };
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <div className="main-div">
-//           <Form>
-//           <span className="inlineTitle">
-//             <b>
-//               <font color="#1976d2">F</font>
-//               <font color="#e53935">u</font>
-//               <font color="#ffb74d">n</font>
-//               <font color="#1976d2">d</font>
-//               <font color="#388e3c">o</font>
-//               <font color="#e53935">o</font>
-//             </b>
-//           </span>
-//             <h4>Sign in</h4>
-//             <p>Use your Google Account </p>
-//             <Form.Group controlId="formBasicEmail">
-//               <TextField
-//                 id="outlined-helperText"
-//                 label="Email or Phone"
-//                 variant="outlined"
-//               />
-//               <div className="link"><a href="https://www.w3schools.com/">Forget email?</a></div>
-//             </Form.Group>
-//             <Form.Group controlId="formBasicPassword">
-//               <TextField
-//                 id="outlined-password-input"
-//                 label="Password"
-//                 type="password"
-//                 autoComplete="current-password"
-//                 variant="outlined"
-//               />
-//             </Form.Group>
-//             <Form.Group controlId="formBasicCheckbox">
-//               <Form.Check type="checkbox" label="show password" />
-//             </Form.Group>
-//             <Button color="primary">Create account</Button>
-//           </Form>
-//         </div>
-
-//       </div>
-//     );
-//   }
-// }
-
-// export default Login;
