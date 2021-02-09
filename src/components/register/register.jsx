@@ -7,6 +7,14 @@ import TextField from '@material-ui/core/TextField';
 import './register.scss';
 import Typography from "@material-ui/core/Typography";
 import registration from "../../services/userservice";
+import AccImg from "../assests/account.svg";
+import Snackbar from "@material-ui/core/Snackbar";
+// import MuiAlert from "@material-ui/lab/Alert";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+// function Alert(props) {
+//   return <MuiAlert variant="filled" {...props} />;
+// }
 
 class Register extends Component {
   constructor(props) {
@@ -69,151 +77,132 @@ class Register extends Component {
         console.log(error);
       });
   };
-  signIn=()=>{
-    window.location.href="http://localhost:3000/login"
-  }
+  // signIn=()=>{
+  //   window.location.href="http://localhost:3000/login"
+  // }
   render() {
-    return (
-      <div>
-        <div className="container1-body">
-          <div>
-            <Typography
-              className="app_name1"
-              variant="h5"
-              color="textSecondary"
-            >
-              <span style={{ color: "#0606f8" }}>F</span>
-              <span style={{ color: "#d10303" }}>u</span>
-              <span style={{ color: "#f0b000" }}>n</span>
-              <span style={{ color: "#0606f8" }}>d</span>
-              <span style={{ color: "green" }}>o</span>
-              <span style={{ color: "#d10303" }}>o</span>
-            </Typography>
-          </div>
-          <div className="text">
-            <h4>Create your Fundoo Account</h4>
-          </div>
-          <Form className="form">
-            <Row>
-              <Col className="fname">
-                <TextField
-                  // value={this.state.firstName}
-                  name="firstName"
-                  id="outlined-textarea1"
-                  label="FirstName"
-                  placeholder=""
-                  multiline
-                  variant="outlined"
-                  size="small"
-                  margin="dense"
-                  onChange={this.handleFirstNameInput}
-                />
-                {/* <Form.Control placeholder="First name" /> */}
-              </Col>
-
-              <Col className="lname">
-                <TextField
-                  // value={this.state.lastName}
-                  name="lastName"
-                  id="outlined-textarea1"
-                  label="LastName"
-                  placeholder=""
-                  variant="outlined"
-                  multiline
-                  // type="text"
-                  size="small"
-                  margin="dense"
-                  onChange={this.handleLastNameInput}
-                />
-                {/* <Form.Control placeholder="Last name" /> */}
-              </Col>
-            </Row>
-            <div className="user">
-              <TextField
-                // value={this.state.email}
-                name="email"
-                id="outlined-textarea2"
-                label="Username"
-                placeholder=""
-                variant="outlined"
-                type="text"
-                // color="blue"
-                helperText="You can use letters,numbers & symbols"
-                // size="medium"
-                margin="dense"
-                onChange={this.handleEmailInput}
-              />
-              <span class="gmail">@gmail.com</span>
-            </div>
-            <div className="line1">
-              <Button variant="link">
-                Use my current email address instead
-              </Button>
-            </div>
-            <div className="cnfmpass">
-              <Row>
-                <Col className="pass1">
-                  <TextField
-                    // value={this.state.password}
-                    name="password"
-                    id="outlined-textarea3"
-                    label="Password"
-                    placeholder=""
-                    name="password"
-                    variant="outlined"
-                    type="password"
-                    autoComplete="current-password"
-                    size="small"
-                    margin="dense"
-                    onChange={this.handlePasswordInput}
-                  />
-                  {/* <Form.Control placeholder="First name" /> */}
-                </Col>
-
-                <Col className="cnfm1">
-                  <TextField
-                    id="outlined-textarea3"
-                    label="Confirm"
-                    placeholder=""
-                    name=""
-                    variant="outlined"
-                    type="password"
-                    autoComplete="current-password"
-                    size="small"
-                    margin="dense"
-                    onchange={this.handleReapetPasswordInput}
-                  />
-                  {/* <Form.Control placeholder="Last name" /> */}
-                </Col>
-              </Row>
-              <div className="hint">
-                Use 8 or more characters with a mix of letters, numbers &
-                symbols{" "}
-              </div>
-            </div>
-            <Form.Group id="formGridCheckbox">
-              <Form.Check type="checkbox" label="Show password" />
-            </Form.Group>
-            <Button className="link2" variant="link"  onClick={this.signIn}>
-              Sign in instead
-              
-            </Button>
-            <Button
-              onClick={this.handleSubmit}
-              className="but2"
-              variant="primary"
-              type="submit"
-            >
-              Next
-            </Button>
-            <div className="accnt">
-              <img />
-            </div>
-            {/* <div>One account. All of Google working for you.</div> */}
-          </Form>
+    return (    
+<div className="registration">
+<div elevation={0} className="signupPage">
+  <div className="header">
+    <span className="inlineTitle">
+      <b>
+        <font color="#1976d2">F</font>
+        <font color="#e53935">u</font>
+        <font color="#ffb74d">n</font>
+        <font color="#1976d2">d</font>
+        <font color="#388e3c">o</font>
+        <font color="#e53935">o</font>
+      </b>
+    </span>
+    <div className="headerText">Create your Fundoo Account </div>
+  </div>
+  <div className="container">
+    <form className="form">
+      <div className="inputs">
+        <div className="inputField">
+          <TextField
+            autoCapitalize="off"
+            name="firstName"
+            value={this.state.firstName}
+            size="small"
+            label="First Name"
+            variant="outlined"
+            fullWidth
+            onChange={this.handleFirstNameInput}
+          />
+        </div>
+        <div className="inputField">
+          <TextField
+            size="small"
+            name="lastName"
+            label="Last Name"
+            variant="outlined"
+            value={this.state.lastName}
+            fullWidth
+            onChange={this.handleLastNameInput}
+          />
         </div>
       </div>
-    );
-  }
+      <div className="inputs">
+        <div className="inputField">
+          <TextField
+            size="small"
+            variant="outlined"
+            fullWidth
+            className="emailField"
+            name="email"
+            value={this.state.email}
+            label="email"
+            onChange={this.handleEmailInput}
+          />
+        </div>
+      </div>
+      <div className="inputs">
+        <div className="inputField">
+          <TextField
+            size="small"
+            id="password"
+            label="Password"
+            name="password"
+            value={this.state.password}
+            fullWidth
+            onChange={this.handlePasswordInput}
+           
+            variant="outlined"
+          />
+        </div>
+        <div className="inputField">
+          <TextField
+            size="small"
+            id="password"
+            label="Confirm"
+            name="conformPassword"
+            fullWidth 
+            variant="outlined"
+            onChange={this.handleReapetPasswordInput}
+          />
+        </div>
+      </div>
+      <span className="checkBoxInputs">
+        <Checkbox
+          onClick={this.clickShowPass}
+          color="primary"
+          className="showPass"
+        />
+        Show Password
+      </span>
+      <div className="footerButtons">
+        <div className="signInLink">
+          <Button
+            color="primary"
+            onClick={this.handleSubmit}>
+            Next
+          </Button>
+        </div>
+        <div className="nextButton">
+        <Link href="#" variant="body2">
+        {"create Account"}
+         </Link>
+        </div>
+      </div>
+    </form>
+    <div className="regImg">
+      <img src={AccImg} alt="" />
+      <p className="ImgText">
+        {" "}
+        One account. All of Fundoo working for you.
+      </p>
+    </div>
+  </div>
+</div>
+<div>
+<Snackbar open={this.state.open} >
+ 
+</Snackbar>
+</div>
+</div>
+);
+}
 }
 export default Register;

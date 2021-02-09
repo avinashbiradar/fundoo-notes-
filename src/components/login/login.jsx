@@ -1,15 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { withStyles,makeStyles } from '@material-ui/core/styles';
+import { login } from "../../services/userservice"
 import "./login.scss";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = theme => ({
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -27,45 +28,51 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
-// forgotPage=()=>{
-//   window.location.href="http://localhost:3000/reset"
-// }
-export default function Login() {
-  // constructor(props) {
-  //   super(props)
+});
+
+class Login extends Component {
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+    this.state = {
+        email: '',
+        password: '',
+    }
+  }
   
-  //   this.state = {
-  //       email: '',
-  //       password: '',
-  //   }
-  // }
-  const classes = useStyles();
   
 
-// handleChange = (e) => {
-//   // e.preventDefault();
-//   console.log("on change calling", e.target.value);
-//   this.setState({ [e.target.name]: e.target.value })
-// }
+  change = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
+  onSubmit = (event) => {
+    event.preventDefault();
+    let loginData = {
+        
+      email: this.state.email,
+      password: this.state.password,
+      
+    };
 
-// handleRegister = (e) => {
-//   e.preventDefault();
-//   let data = {
-//       email: this.state.email,
-//       password: this.state.password,
-//       service: "advance"
-//   }
-//   userService.login(data).then((response) => {
-//       console.log("response successfull", response);
-//   }).catch((error) => {
-//       console.log("error", error);
-//   })
-// }
+    console.log(loginData)
+    login (loginData).then((data)=>{
+      console.log(data);
+    })
+    .catch ((error)=>{
+      console.log(error)
+    })
+   
+  }
 
-
-  return (
+  render (){
+    console.log(this.props)
+     const { classes } = this.props;
+  
+    return(
+      
     <Container classname="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -82,7 +89,6 @@ export default function Login() {
         </div>
         <form className={classes.form} noValidate>
           <TextField
-            // value={this.state.email}
             variant="outlined"
             margin="normal"
             required
@@ -91,11 +97,11 @@ export default function Login() {
             label="Email Address Or Phone"
             name="email"
             autoFocus
-            // onChange={this.handleChange}
-          />
+            onChange={(e) => this.change(e)}
+            value={this.state.email}
+            />
 
           <TextField
-            // value={this.state.password}
             variant="outlined"
             margin="normal"
             required
@@ -104,7 +110,8 @@ export default function Login() {
             label="Password"
             type="password"
             id="password"
-            // onChange={this.handleChange}
+            onChange={(e) => this.change(e)}
+            value={this.state.password}
           />
           <div class="forgot-password">
             <Link href="#" variant="body2"  >
@@ -120,7 +127,7 @@ export default function Login() {
             </Grid>
             <Grid item item xs={12} sm={6} classname="submit">
               <Button
-                // onClick={this.handleRegister}
+                onClick={this.onSubmit}
                 type="submit"
                 variant="contained"
                 color="primary"
@@ -133,6 +140,10 @@ export default function Login() {
         </form>
       </div>
     </Container>
-  );
+    )
+  }
 }
 
+
+// export default withStyles(useStyles)(Login);
+export default withStyles(useStyles)(Login);
